@@ -15,7 +15,7 @@ export const extension = extensions.getExtension(EXTENSION_ID)!;
 
 export class StorageManager {
   private static instance: StorageManager;
-  private readonly GITHUB_RAW_URL = "https://raw.githubusercontent.com/SUP2Ak/cfx-natives-data/main";
+  private readonly GITHUB_RAW_URL = "https://raw.githubusercontent.com/SUP2Ak/cfx-natives-data/main/assets";
   private globalStoragePath: string;
 
   private constructor(context: ExtensionContext) {
