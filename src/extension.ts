@@ -7,8 +7,11 @@ import {
 import { listNatives, toggleAutoArgs } from "./commands";
 import { NativeCompletionProvider } from "./providers/completion";
 import ResourceManager from "./parser/manifest";
+import { StorageManager } from './utils';
 
 export async function activate(context: ExtensionContext) {
+  const storage = StorageManager.getInstance(context);
+  await storage.checkAndUpdateCache();
   await ResourceManager.scanWorkspace();
 
   console.log("🚀 Extension is activating...");
@@ -103,5 +106,6 @@ export async function activate(context: ExtensionContext) {
 }
 
 export function deactivate() {
+  ResourceManager.clearAllCaches();
   console.log('🛑 Extension "cfx-natives-vscode" is now deactivated!');
 }
