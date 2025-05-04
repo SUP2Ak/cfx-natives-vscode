@@ -25,8 +25,8 @@ L'extension s'active automatiquement pour les fichiers `.lua`, `.js`, `.ts` et `
 
 Vous pouvez configurer l'extension dans les paramètres VSCode :
 
-- `cfxNatives.listNatives`: Choisir entre "gta5" et "rdr3"
-- `cfxNatives.toggleParentheses`: Activer/désactiver les mises à jour automatiques
+- `cfxNatives.listNatives`: Affiche une webview avec la liste des natives
+- `cfxNatives.toggleParentheses`: Activer/désactiver l'insertion automatique des parenthèses
 
 ## License
 
