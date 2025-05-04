@@ -1,15 +1,38 @@
 {
   "name": "cfx-natives-vscode",
-  "displayName": "cfx-natives-vscode",
+  "displayName": "CFX Natives VSCode",
   "author": "SUP2AK",
-  "description": "CFX Natives for VSCode",
-  "version": "0.0.1",
+  "description": "Autocompletion for FiveM/RedM natives with type definitions",
+  "version": "1.0.0",
+  "publisher": "sup2ak",
   "engines": {
     "vscode": "^1.99.0"
   },
   "categories": [
+    "Programming Languages",
+    "Snippets",
     "Other"
   ],
+  "keywords": [
+    "fivem",
+    "redm",
+    "cfx",
+    "natives",
+    "lua",
+    "typescript",
+    "javascript",
+    "csharp",
+    "sup2ak"
+  ],
+  "icon": "assets/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sup2ak/cfx-natives-vscode"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sup2ak/cfx-natives-vscode/issues"
+  },
   "activationEvents": [
     "onLanguage:lua",
     "onLanguage:javascript",
@@ -30,13 +53,13 @@
     },
     "commands": [
       {
-        "command": "cfx-natives-vscode.listNatives",
+        "command": "cfxNatives.listNatives",
         "title": "CFX: List Natives",
         "description": "Open page with all natives",
         "category": "CFX Natives"
       },
       {
-        "command": "cfx-natives.toggleParentheses",
+        "command": "cfxNatives.toggleParentheses",
         "title": "Toggle Auto Parentheses",
         "description": "Toggle the automatic insertion of parentheses with arguments when you enter a native function name",
         "category": "CFX Natives"
