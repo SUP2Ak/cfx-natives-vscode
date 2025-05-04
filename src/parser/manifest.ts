@@ -244,7 +244,9 @@ export default class ResourceManager {
 
   static getScriptType(filePath: string): string {
     const cached = this.scriptTypeCache.get(filePath);
-    if (cached) return cached;
+    if (cached) {
+      return cached;
+    }
 
     const type = this.calculateScriptType(filePath);
     this.scriptTypeCache.set(filePath, type);
@@ -253,9 +255,15 @@ export default class ResourceManager {
 
   private static calculateScriptType(filePath: string): string {
     for (const resource of this.resources.values()) {
-      if (resource.clientFiles.has(filePath)) return "client";
-      if (resource.serverFiles.has(filePath)) return "server";
-      if (resource.sharedFiles.has(filePath)) return "shared";
+      if (resource.clientFiles.has(filePath)) {
+        return "client";
+      }
+      if (resource.serverFiles.has(filePath)) {
+        return "server";
+      }
+      if (resource.sharedFiles.has(filePath)) {
+        return "shared";
+      }
     }
     return "undefined";
   }
