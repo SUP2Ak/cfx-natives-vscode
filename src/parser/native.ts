@@ -1,5 +1,10 @@
 import { Lang, Arguments, Native } from "../types";
 
+/**
+ * TODO:
+ * - Improve better parser for native, and make all data conversion in cfx-natives-data repo.
+ */
+
 export default class NativeParser {
   private static readonly TYPE_MAPPINGS = {
     lua: {
@@ -129,7 +134,7 @@ export default class NativeParser {
     }
   }
 
-  private static parseParams(native: Native, params: Arguments[], lang: Lang): string {
+  private static parseParams(_: Native, params: Arguments[], lang: Lang): string {
     return params.map(param => {
       const type = this.parseType(param.type, lang, true);
       
@@ -175,6 +180,7 @@ export default class NativeParser {
 
     let parsedType = mapping[baseType as keyof typeof mapping] || baseType;
 
+    // That need rework... but I will parse in cfx-natives-data later
     if (isPointer && isParam) {
       switch (lang) {
         case 'csharp': return `${parsedType}`;
