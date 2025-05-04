@@ -27,9 +27,9 @@ export interface Native {
 export interface FxManifest {
   path: string;
   [key: string]: string | string[] | undefined;
-  client_scripts?: string[];
-  server_scripts?: string[];
-  shared_scripts?: string[];
+  client_scripts: string[];
+  server_scripts: string[];
+  shared_scripts: string[];
   games?: "gta5" | "rdr3" | string[];
 }
 
