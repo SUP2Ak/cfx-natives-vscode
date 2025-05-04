@@ -1,9 +1,9 @@
 import { commands, workspace, window } from "vscode";
 
 const toggleAutoArgs = commands.registerCommand(
-  "cfx-natives.toggleParentheses",
+  "cfxNatives.toggleParentheses",
   () => {
-    const config = workspace.getConfiguration("cfx-natives");
+    const config = workspace.getConfiguration("cfxNatives");
     const current = config.get("insertParentheses", false);
     config.update("insertParentheses", !current, true).then(() => {
         window.showInformationMessage(
