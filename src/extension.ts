@@ -101,7 +101,7 @@ export async function activate(context: ExtensionContext) {
   context.subscriptions.push(completionProvider);
   context.subscriptions.push(toggleAutoArgs);
   context.subscriptions.push(
-    commands.registerCommand('cfx-natives-vscode.listNatives', listNatives)
+    commands.registerCommand('cfxNatives.listNatives', listNatives)
   );
 }
 
