@@ -3,7 +3,7 @@
   "displayName": "CFX Natives VSCode",
   "author": "SUP2AK",
   "description": "Autocompletion for FiveM/RedM natives with type definitions",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "publisher": "sup2ak",
   "engines": {
     "vscode": "^1.99.0"
