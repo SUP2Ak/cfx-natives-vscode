@@ -10,7 +10,10 @@
 			"type": "extensionHost",
 			"request": "launch",
 			"args": [
-				"--extensionDevelopmentPath=${workspaceFolder}"
+				"--extensionDevelopmentPath=${workspaceFolder}",
+				//"--disable-extensions",
+				//"--activate-extension=sumneko.lua",
+				//"--extensionsDevelopmentPath=${workspaceFolder}/sumneko.lua"
 			],
 			"outFiles": [
 				"${workspaceFolder}/dist/**/*.js",
