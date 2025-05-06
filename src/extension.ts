@@ -3,11 +3,14 @@ import {
   ExtensionContext,
   languages,
   workspace,
+  Uri,
 } from "vscode";
 import { listNatives, toggleAutoArgs } from "./commands";
 import { NativeCompletionProvider } from "./providers/completion";
-import ResourceManager from "./parser/manifest";
 import { StorageManager } from './utils';
+import ResourceManager from "./parser/manifest";
+import setPlugin from './plugin/setPlugin';
+import moveFile from './plugin/moveFile';
 
 export async function activate(context: ExtensionContext) {
   const storage = StorageManager.getInstance(context);
@@ -103,9 +106,33 @@ export async function activate(context: ExtensionContext) {
   context.subscriptions.push(
     commands.registerCommand('cfxNatives.listNatives', listNatives)
   );
+
+  // Configurer et activer le plugin Lua
+  try {
+    const sourceUri = Uri.joinPath(context.extensionUri, 'plugin');
+    const storageUri = context.globalStorageUri;
+    
+    console.log('Source URI:', sourceUri.fsPath);
+    console.log('Storage URI:', storageUri.fsPath);
+    
+    // Copier le plugin.lua vers le dossier de stockage
+    await moveFile('plugin.lua', sourceUri, storageUri);
+    
+    // Activer le plugin en passant le contexte
+    await setPlugin(true, context);
+
+    console.log('Plugin Lua activé avec succès');
+  } catch (error) {
+    console.error('Erreur lors de l\'activation du plugin Lua:', error);
+  }
 }
 
 export function deactivate() {
   ResourceManager.clearAllCaches();
   console.log('🛑 Extension "cfx-natives-vscode" is now deactivated!');
+
+  // Désactiver le plugin lors de la désactivation de l'extension
+  setPlugin(false, null).catch((error: any) => {
+    console.error('Erreur lors de la désactivation du plugin Lua:', error);
+  });
 }
