@@ -6,8 +6,11 @@
   "version": "0.0.2",
   "publisher": "sup2ak",
   "engines": {
-    "vscode": "^1.99.0"
+    "vscode": "^1.81.0"
   },
+  "files": [
+    "plugin/**/*"
+  ],
   "categories": [
     "Programming Languages",
     "Snippets",
